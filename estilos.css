@@ -1,0 +1,632 @@
+/* =====================================================
+   VARIABLES DE COLOR
+   Aquí guardamos los colores una sola vez. Después los usamos con var(--nombre).
+   Si queremos cambiar un color de toda la página, solo lo cambiamos aquí.
+   ===================================================== */
+:root {
+  --fondo: #f6f1e7;           /* color de fondo de la página (tipo papel) */
+  --tinta: #1f2430;           /* color del texto */
+  --azul-oscuro: #14284b;     /* color principal */
+  --dorado: #e9b44c;          /* color de detalles */
+  --gris: #6b7280;
+  --sombra: 0 4px 14px rgba(0, 0, 0, 0.10);
+
+  /* Colores de los tipos de nodo de la red */
+  --causa: #e07a1f;
+  --evento: #2a6fdb;
+  --actor: #2e9e5b;
+  --consecuencia: #c0392b;
+
+  /* Colores de la línea de tiempo y del comparador */
+  --corea: #2a6fdb;
+  --vietnam: #c0392b;
+  --otras: #6b7280;
+}
+
+/* =====================================================
+   ESTILOS GENERALES
+   ===================================================== */
+
+/* El * significa "todos los elementos". border-box hace que el padding no agrande las cajas */
+* {
+  box-sizing: border-box;
+}
+
+/* Hace que al hacer clic en el menú la página baje suavemente */
+html {
+  scroll-behavior: smooth;
+}
+
+/* body es toda la página: aquí ponemos la letra y el fondo */
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  margin: 0;
+  background-color: var(--fondo);
+  color: var(--tinta);
+  line-height: 1.6;
+}
+
+/* Los títulos usan otra letra (con serifas) para que se vea más histórica */
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* =====================================================
+   PORTADA (header)
+   ===================================================== */
+header {
+  background: linear-gradient(135deg, #14284b, #0a1428); /* fondo con degradado */
+  color: white;
+  text-align: center;
+  padding: 70px 20px 60px 20px;
+}
+
+header h1 {
+  font-size: 52px;
+  margin: 10px 0;
+}
+
+header h3 {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 400;
+  color: #cfd8ea;
+  margin: 0 0 25px 0;
+}
+
+.etiqueta-superior {
+  text-transform: uppercase;   /* todo en mayúsculas */
+  letter-spacing: 3px;         /* separa las letras */
+  color: var(--dorado);
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Los nombres del equipo se ven como "píldoras" */
+#integrantes span {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin: 4px;
+  font-size: 14px;
+}
+
+/* Recuadro de la pregunta central */
+#pregunta-central {
+  max-width: 820px;
+  margin: 30px auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--dorado);
+  border-radius: 14px;
+  padding: 20px 25px;
+}
+
+#pregunta-central h2 {
+  font-size: 24px;
+  margin: 5px 0 0 0;
+}
+
+.mini-titulo {
+  color: var(--dorado);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin: 0;
+}
+
+.boton-inicio {
+  display: inline-block;
+  background-color: var(--dorado);
+  color: var(--azul-oscuro);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+}
+
+.boton-inicio:hover {
+  background-color: white;
+}
+
+/* =====================================================
+   MENÚ (nav)
+   ===================================================== */
+nav {
+  background-color: var(--azul-oscuro);
+  text-align: center;
+  padding: 12px 10px;
+  position: sticky;   /* el menú se queda pegado arriba cuando bajas */
+  top: 0;
+  z-index: 10;        /* para que quede encima de lo demás */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;   /* quita el subrayado */
+  margin: 0 12px;
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+
+nav a:hover {
+  color: var(--dorado);
+  border-bottom: 2px solid var(--dorado);   /* subrayado dorado al pasar el mouse */
+}
+
+/* =====================================================
+   SECCIONES (cada una se ve como una tarjeta blanca)
+   ===================================================== */
+section {
+  max-width: 1050px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+  scroll-margin-top: 60px;   /* así el menú no tapa el título al hacer clic */
+}
+
+section h2 {
+  font-size: 32px;
+  color: var(--azul-oscuro);
+  margin-top: 0;
+}
+
+section h3 {
+  color: var(--azul-oscuro);
+}
+
+.numero-seccion {
+  color: var(--dorado);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* =====================================================
+   CONTEXTO: TARJETAS Y COMPARADOR
+   ===================================================== */
+
+/* grid pone las 3 tarjetas en columnas iguales */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.tarjeta {
+  background-color: var(--fondo);
+  border-top: 5px solid var(--dorado);
+  border-radius: 10px;
+  padding: 5px 18px 10px 18px;
+}
+
+.tarjeta h4 {
+  margin-bottom: 5px;
+  color: var(--azul-oscuro);
+}
+
+/* Botones de los temas del comparador */
+.boton-aspecto {
+  padding: 8px 14px;
+  margin: 0 6px 8px 0;
+  border: 2px solid var(--azul-oscuro);
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;          /* la manito al pasar el mouse */
+  font-size: 14px;
+  font-family: inherit;     /* usa la misma letra de la página */
+}
+
+.boton-aspecto:hover {
+  background-color: #e8edf7;
+}
+
+/* Botón del tema que está elegido (el JavaScript agrega la clase "activo") */
+.boton-aspecto.activo {
+  background-color: var(--azul-oscuro);
+  color: white;
+}
+
+/* Las dos tarjetas de resultado, una al lado de la otra */
+#resultado-comparador {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.lado {
+  background-color: #fafafa;
+  border-radius: 12px;
+  padding: 5px 20px 15px 20px;
+  box-shadow: var(--sombra);
+}
+
+.lado.corea {
+  border-top: 6px solid var(--corea);
+}
+
+.lado.vietnam {
+  border-top: 6px solid var(--vietnam);
+}
+
+.lado.corea h3 {
+  color: var(--corea);
+}
+
+.lado.vietnam h3 {
+  color: var(--vietnam);
+}
+
+/* =====================================================
+   RED DE RELACIONES
+   ===================================================== */
+
+/* Colores de cada tipo de nodo. Se usan en los botones, en la leyenda y en las etiquetas */
+.causa {
+  background-color: var(--causa);
+}
+
+.evento {
+  background-color: var(--evento);
+}
+
+.actor {
+  background-color: var(--actor);
+}
+
+.consecuencia {
+  background-color: var(--consecuencia);
+}
+
+.leyenda {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-right: 8px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* 4 columnas iguales, una por cada tipo de nodo */
+#red-nodos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.columna h3 {
+  text-align: center;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gris);
+}
+
+/* Botón de cada nodo */
+.nodo {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s;   /* hace que el movimiento sea suave */
+}
+
+.nodo:hover {
+  transform: translateY(-2px) scale(1.02);   /* el botón sube un poquito */
+}
+
+/* Nodo que el usuario eligió */
+.seleccionado {
+  outline: 4px solid black;
+}
+
+/* Nodos conectados con el elegido */
+.conectado {
+  outline: 4px solid gold;
+}
+
+/* Recuadro con la explicación */
+#panel-info {
+  background-color: #eef2fb;
+  border-left: 6px solid var(--azul-oscuro);
+  border-radius: 10px;
+  padding: 15px 22px;
+  margin-top: 18px;
+  animation: aparecer 0.4s;   /* usa la animación de más abajo */
+}
+
+#panel-info h3 {
+  margin: 10px 0 5px 0;
+}
+
+/* Etiqueta pequeña con el tipo de nodo (Causa, Actor, etc.) */
+.etiqueta {
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+/* Nombres subrayados dentro del panel: se puede hacer clic en ellos */
+.enlace-nodo {
+  color: var(--evento);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.enlace-nodo:hover {
+  color: var(--azul-oscuro);
+}
+
+/* =====================================================
+   VIDEO Y CAPÍTULOS
+   ===================================================== */
+#caja-video {
+  background-color: black;
+  border-radius: 12px;
+  overflow: hidden;      /* para que las esquinas redondeadas también recorten el video */
+  margin: 20px 0;
+  box-shadow: var(--sombra);
+}
+
+#caja-video video {
+  display: block;
+  width: 100%;           /* el video ocupa todo el ancho de la tarjeta */
+}
+
+#lista-capitulos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.capitulo {
+  background-color: var(--fondo);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.capitulo:hover {
+  border-color: var(--dorado);
+}
+
+.capitulo .tiempo {
+  display: block;
+  color: var(--gris);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.capitulo small {
+  display: block;
+  color: var(--gris);
+  margin-top: 4px;
+}
+
+/* =====================================================
+   LÍNEA DE TIEMPO
+   ===================================================== */
+
+/* Botones de filtro */
+.filtro {
+  padding: 8px 16px;
+  margin: 0 6px 8px 0;
+  border: 2px solid var(--azul-oscuro);
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.filtro:hover {
+  background-color: #e8edf7;
+}
+
+/* Cada filtro tiene el color de su categoría */
+.filtro.corea {
+  border-color: var(--corea);
+}
+
+.filtro.vietnam {
+  border-color: var(--vietnam);
+}
+
+.filtro.otras {
+  border-color: var(--otras);
+}
+
+/* Filtro que está activo (el JavaScript agrega la clase "activo") */
+.filtro.activo {
+  background-color: var(--azul-oscuro);
+  color: white;
+}
+
+.filtro.corea.activo {
+  background-color: var(--corea);
+}
+
+.filtro.vietnam.activo {
+  background-color: var(--vietnam);
+}
+
+.filtro.otras.activo {
+  background-color: var(--otras);
+}
+
+#contador {
+  color: var(--gris);
+  font-style: italic;
+}
+
+/* La línea vertical de la línea de tiempo */
+#lista-eventos {
+  border-left: 4px solid var(--dorado);
+  padding-left: 20px;
+  margin-left: 10px;
+}
+
+/* Cada hecho es una tarjeta con un puntito sobre la línea */
+.hecho {
+  position: relative;          /* para poder ubicar el puntito respecto a la tarjeta */
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--sombra);
+  animation: aparecer 0.4s;
+  transition: transform 0.15s;
+}
+
+.hecho:hover {
+  transform: translateX(5px);
+}
+
+/* El puntito de la línea. ::before crea un elemento decorativo antes del contenido */
+.hecho::before {
+  content: "";
+  position: absolute;
+  left: -29px;
+  top: 16px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;          /* 50% lo vuelve un círculo */
+  border: 3px solid white;
+  background-color: var(--otras);
+}
+
+.hecho.corea::before {
+  background-color: var(--corea);
+}
+
+.hecho.vietnam::before {
+  background-color: var(--vietnam);
+}
+
+.hecho h4 {
+  margin: 2px 0;
+}
+
+.hecho p {
+  margin: 4px 0;
+}
+
+.anio {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--otras);
+}
+
+.hecho.corea .anio {
+  color: var(--corea);
+}
+
+.hecho.vietnam .anio {
+  color: var(--vietnam);
+}
+
+/* =====================================================
+   CONCLUSIONES Y FUENTES
+   ===================================================== */
+.destacado {
+  background-color: var(--fondo);
+  border-left: 6px solid var(--dorado);
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-size: 18px;
+}
+
+#fuentes li {
+  margin-bottom: 8px;
+}
+
+/* =====================================================
+   PIE DE PÁGINA
+   ===================================================== */
+footer {
+  background-color: var(--azul-oscuro);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: var(--dorado);
+  text-decoration: none;
+}
+
+/* =====================================================
+   ANIMACIÓN
+   Hace que las cosas aparezcan suavemente desde abajo
+   ===================================================== */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   CELULAR Y PANTALLAS PEQUEÑAS
+   Estas reglas solo se aplican si la pantalla es angosta
+   ===================================================== */
+@media (max-width: 850px) {
+  header h1 {
+    font-size: 36px;
+  }
+
+  .tarjetas,
+  #resultado-comparador {
+    grid-template-columns: 1fr;     /* una sola columna */
+  }
+
+  #red-nodos,
+  #lista-capitulos {
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+  }
+}
+
+@media (max-width: 520px) {
+  section {
+    padding: 20px;
+    scroll-margin-top: 90px;   /* en celular el menú ocupa dos líneas, así que dejamos más espacio */
+  }
+
+  #red-nodos,
+  #lista-capitulos {
+    grid-template-columns: 1fr;
+  }
+}

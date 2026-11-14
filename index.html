@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Esta primera línea le dice al navegador que el archivo es una página HTML5 -->
+<html lang="es">
+<!-- lang="es" indica que la página está en español -->
+
+<head>
+  <!-- El head guarda información de la página que no se ve directamente -->
+  <meta charset="UTF-8">
+  <!-- UTF-8 sirve para que se vean bien las tildes y la ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- viewport hace que la página se adapte al tamaño del celular -->
+  <title>Guerra Fría: Corea y Vietnam</title>
+  <!-- title es el texto que sale en la pestaña del navegador -->
+
+  <!-- Tipos de letra de Google Fonts. Necesita internet; si no hay, el navegador usa Georgia y Arial -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Esta línea conecta el HTML con el archivo de diseño (CSS) -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <!-- El body guarda todo lo que sí se ve en la página -->
+
+  <!-- ========== 1. INICIO ========== -->
+  <header id="inicio">
+    <!-- header es la parte de arriba de la página. El id sirve para que el menú pueda llegar aquí -->
+    <p class="etiqueta-superior">Historia de Occidente · Historia Conectada</p>
+    <h1>Guerra Fría: Corea y Vietnam</h1>
+    <h3>Las intervenciones de Estados Unidos en los siglos XX y XXI</h3>
+
+    <div id="integrantes">
+      <!-- CAMBIAR: poner los nombres reales del equipo (son 6 personas) -->
+      <span>Integrante 1</span>
+      <span>Integrante 2</span>
+      <span>Integrante 3</span>
+      <span>Integrante 4</span>
+      <span>Integrante 5</span>
+      <span>Integrante 6</span>
+    </div>
+
+    <div id="pregunta-central">
+      <!-- Esta es la pregunta central de toda la página -->
+      <p class="mini-titulo">Pregunta central</p>
+      <h2>¿Por qué Estados Unidos intervino militarmente en Corea y Vietnam durante la Guerra Fría y qué consecuencias dejaron esas intervenciones?</h2>
+    </div>
+
+    <a href="#contexto" class="boton-inicio">Empezar a explorar ↓</a>
+    <!-- Un enlace con href="#contexto" lleva a la sección que tenga id="contexto" -->
+  </header>
+
+  <!-- ========== MENÚ ========== -->
+  <nav>
+    <!-- nav es el menú. Cada enlace lleva a una sección usando su id con el símbolo # -->
+    <a href="#contexto">Contexto</a>
+    <a href="#red">Red de relaciones</a>
+    <a href="#video">Documental</a>
+    <a href="#linea">Línea de tiempo</a>
+    <a href="#conclusiones">Conclusiones</a>
+    <a href="#fuentes">Fuentes</a>
+  </nav>
+
+  <main>
+    <!-- main guarda el contenido principal de la página -->
+
+    <!-- ========== 2. CONTEXTO HISTÓRICO ========== -->
+    <section id="contexto">
+      <p class="numero-seccion">01</p>
+      <h2>Contexto histórico</h2>
+      <p>
+        Al terminar la Segunda Guerra Mundial, Estados Unidos y la Unión Soviética quedaron como las dos grandes
+        potencias. Tenían ideas opuestas: Estados Unidos defendía el capitalismo y la democracia liberal, y la URSS
+        defendía el comunismo. A esta rivalidad se le llama Guerra Fría.
+      </p>
+      <p>
+        Las dos potencias casi nunca pelearon directamente, pero sí se enfrentaron en otros países. Estados Unidos
+        siguió una política de <b>contención</b>: evitar que el comunismo se expandiera. Corea y Vietnam eran países
+        divididos en dos mitades, y en cada uno de ellos la Guerra Fría se volvió una guerra real.
+      </p>
+
+      <div class="tarjetas">
+        <!-- Tres tarjetas con ideas clave. Se ven una al lado de la otra (el CSS usa grid) -->
+        <div class="tarjeta">
+          <h4>Dos potencias</h4>
+          <p>EE.UU. (capitalismo) y la URSS (comunismo) quedaron como las dos grandes potencias en 1945.</p>
+        </div>
+        <div class="tarjeta">
+          <h4>Contención</h4>
+          <p>Desde 1947 (Doctrina Truman), EE.UU. apoyó a los países que resistieran al comunismo.</p>
+        </div>
+        <div class="tarjeta">
+          <h4>Países divididos</h4>
+          <p>Corea y Vietnam quedaron divididos en un norte y un sur, cada uno con una potencia detrás.</p>
+        </div>
+      </div>
+
+      <!-- ----- COMPARADOR ----- -->
+      <h3>Comparador: Corea frente a Vietnam</h3>
+      <p>Elige un tema para comparar las dos guerras lado a lado.</p>
+
+      <div id="botones-comparador"></div>
+      <!-- Este recuadro empieza vacío a propósito: el JavaScript crea aquí los botones de cada tema -->
+
+      <div id="resultado-comparador">
+        <div class="lado corea">
+          <h3>Corea</h3>
+          <p id="texto-corea"></p>
+          <!-- El JavaScript escribe aquí el texto cuando se elige un tema -->
+        </div>
+        <div class="lado vietnam">
+          <h3>Vietnam</h3>
+          <p id="texto-vietnam"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. RED INTERACTIVA DE RELACIONES ========== -->
+    <section id="red">
+      <p class="numero-seccion">02</p>
+      <h2>Red de relaciones históricas</h2>
+      <p>
+        Haz clic en un cuadro. El cuadro elegido se marca con borde negro y los cuadros con los que se conecta se
+        marcan con borde dorado. Abajo aparece la explicación de cada relación, y puedes hacer clic en los nombres
+        subrayados para saltar de un cuadro a otro.
+      </p>
+
+      <!-- Leyenda: explica qué significa cada color -->
+      <p>
+        <span class="leyenda causa">Causas</span>
+        <span class="leyenda evento">Acontecimientos</span>
+        <span class="leyenda actor">Actores</span>
+        <span class="leyenda consecuencia">Consecuencias</span>
+      </p>
+
+      <div id="red-nodos">
+        <!-- Cada columna tiene un recuadro vacío: el JavaScript crea los botones y los mete ahí -->
+        <div class="columna">
+          <h3>Causas</h3>
+          <div id="columna-causa"></div>
+        </div>
+        <div class="columna">
+          <h3>Acontecimientos</h3>
+          <div id="columna-evento"></div>
+        </div>
+        <div class="columna">
+          <h3>Actores</h3>
+          <div id="columna-actor"></div>
+        </div>
+        <div class="columna">
+          <h3>Consecuencias</h3>
+          <div id="columna-consecuencia"></div>
+        </div>
+      </div>
+
+      <div id="panel-info">
+        <!-- Este recuadro cambia cada vez que se hace clic en un cuadro (lo cambia el JavaScript) -->
+        <p>Haz clic en un cuadro para ver su explicación y sus conexiones.</p>
+      </div>
+    </section>
+
+    <!-- ========== 4. PRODUCCIÓN AUDIOVISUAL ========== -->
+    <section id="video">
+      <p class="numero-seccion">03</p>
+      <h2>Producción audiovisual</h2>
+      <p><b>Modalidad:</b> Documental histórico</p>
+
+      <div id="caja-video">
+        <video id="video-documental" controls>
+          <!-- video pone el reproductor. "controls" muestra los botones de play, pausa y volumen -->
+          <source src="video.mp4" type="video/mp4">
+          <!-- source dice cuál es el archivo. Debe llamarse video.mp4 y estar en la misma carpeta que este archivo -->
+          Tu navegador no puede mostrar el video.
+          <!-- Este texto solo sale si el navegador no soporta video -->
+        </video>
+      </div>
+
+      <!-- Si prefieren subir el video a YouTube, borren la etiqueta video de arriba y usen esta línea.
+           OJO: con YouTube los botones de capítulos de abajo NO funcionan, solo funcionan con video.mp4
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/ID_DEL_VIDEO" allowfullscreen></iframe>
+      -->
+
+      <h3>Capítulos del documental</h3>
+      <p>Haz clic en un capítulo para ir directo a ese minuto del video.</p>
+      <div id="lista-capitulos"></div>
+      <!-- Vacío: el JavaScript crea aquí un botón por cada capítulo -->
+
+      <p>
+        <b>¿Cómo ayuda este documental a responder la pregunta central?</b>
+        Escribir aquí 2 o 3 líneas explicando qué muestra el documental y qué evidencia aporta.
+      </p>
+      <!-- CAMBIAR: este párrafo lo tienen que escribir ustedes según su documental -->
+    </section>
+
+    <!-- ========== 5. RECURSO INTERACTIVO: LÍNEA DE TIEMPO ========== -->
+    <section id="linea">
+      <p class="numero-seccion">04</p>
+      <h2>Línea de tiempo con filtros</h2>
+      <p>
+        Elige una categoría para ver solo esos hechos. Así se puede comparar cuándo pasó cada cosa en Corea, en
+        Vietnam y en las otras intervenciones de Estados Unidos.
+      </p>
+
+      <div id="filtros">
+        <!-- Cada botón llama a la función mostrarLinea() de script.js y le manda la categoría -->
+        <button id="filtro-todos" class="filtro" onclick="mostrarLinea('todos')">Todos</button>
+        <button id="filtro-corea" class="filtro corea" onclick="mostrarLinea('corea')">Corea</button>
+        <button id="filtro-vietnam" class="filtro vietnam" onclick="mostrarLinea('vietnam')">Vietnam</button>
+        <button id="filtro-otras" class="filtro otras" onclick="mostrarLinea('otras')">Contexto y otras intervenciones</button>
+      </div>
+
+      <p id="contador"></p>
+      <!-- Aquí el JavaScript escribe cuántos hechos se están mostrando -->
+
+      <div id="lista-eventos"></div>
+      <!-- Aquí el JavaScript pone la línea de tiempo -->
+    </section>
+
+    <!-- ========== 6. CONCLUSIONES ========== -->
+    <section id="conclusiones">
+      <p class="numero-seccion">05</p>
+      <h2>Conclusiones</h2>
+      <!-- CAMBIAR: este texto es un borrador. Reescríbanlo con sus propias palabras -->
+      <p class="destacado">
+        Estados Unidos intervino en Corea y Vietnam sobre todo por su política de contención: quería evitar que el
+        comunismo se expandiera. En Vietnam además influyó la idea del efecto dominó.
+      </p>
+      <p>
+        En los dos casos el país estaba dividido en dos mitades enfrentadas, y cada mitad tenía una potencia detrás.
+        Las consecuencias fueron distintas. En Corea la guerra terminó en un armisticio y el país sigue dividido. En
+        Vietnam Estados Unidos se retiró y el país se reunificó bajo el gobierno comunista.
+      </p>
+      <p>
+        Dentro de Estados Unidos, la guerra de Vietnam causó protestas y dudas sobre las intervenciones en el
+        extranjero. Y las intervenciones no terminaron con la Guerra Fría: la línea de tiempo muestra que continuaron
+        en los siglos XX y XXI, con otras razones y en otros países.
+      </p>
+    </section>
+
+    <!-- ========== 7. FUENTES ========== -->
+    <section id="fuentes">
+      <p class="numero-seccion">06</p>
+      <h2>Fuentes</h2>
+      <!-- CAMBIAR: dejar solo las fuentes que de verdad usaron y agregar las del sílabo -->
+      <ul>
+        <!-- ul es una lista con viñetas y cada li es un elemento de la lista -->
+        <li>Gaddis, J. L. (2005). <i>The Cold War: A New History</i>. Penguin Press.</li>
+        <li>Westad, O. A. (2005). <i>The Global Cold War</i>. Cambridge University Press.</li>
+        <li>Stueck, W. (1995). <i>The Korean War: An International History</i>. Princeton University Press.</li>
+        <li>Karnow, S. (1983). <i>Vietnam: A History</i>. Viking Press.</li>
+        <li>Logevall, F. (2012). <i>Embers of War</i>. Random House.</li>
+        <li>Hobsbawm, E. (1995). <i>Historia del siglo XX</i>. Crítica.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Proyecto Historia Conectada | Historia de Occidente y CCOMP</p>
+    <p><a href="#inicio">Volver arriba ↑</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- El script va al final del body para que el JavaScript encuentre todos los elementos ya cargados -->
+</body>
+
+</html>
