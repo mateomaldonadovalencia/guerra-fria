@@ -378,12 +378,11 @@ section h3 {
 /* =====================================================
    VIDEO Y CAPÍTULOS
    ===================================================== */
-#caja-video {
-  background-color: black;
-  border-radius: 12px;
-  overflow: hidden;      /* para que las esquinas redondeadas también recorten el video */
-  margin: 20px 0;
-  box-shadow: var(--sombra);
+#caja-video iframe {
+  display: block;
+  width: 100%;           /* el video ocupa todo el ancho de la tarjeta */
+  aspect-ratio: 16 / 9;  /* mantiene la forma de pantalla de video */
+  border: none;          /* quita el borde que trae el iframe */
 }
 
 #caja-video video {
