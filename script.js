@@ -365,51 +365,7 @@ function mostrarComparacion(numero) {
 
 
 // =====================================================
-// PARTE 4: CAPÍTULOS DEL DOCUMENTAL
-// =====================================================
-// Cada capítulo tiene el minuto en que empieza (tiempo), esos mismos minutos en segundos
-// (segundo), un título y una frase corta.
-// CAMBIAR: poner los minutos reales del documental cuando esté terminado.
-
-let capitulos = [
-  { tiempo: "0:00", segundo: 0, titulo: "Apertura", texto: "Datos que despiertan la pregunta." },
-  { tiempo: "0:30", segundo: 30, titulo: "Un mundo partido en dos", texto: "Guerra Fría y contención." },
-  { tiempo: "2:15", segundo: 135, titulo: "Corea, un país cortado", texto: "División e invasión de 1950." },
-  { tiempo: "4:00", segundo: 240, titulo: "La guerra que no terminó", texto: "China, armisticio y frontera de hoy." },
-  { tiempo: "5:45", segundo: 345, titulo: "Vietnam, de colonia a país dividido", texto: "Francia, Ginebra y teoría del dominó." },
-  { tiempo: "7:30", segundo: 450, titulo: "De asesores a guerra total", texto: "Tonkín, tropas, Tet y Saigón." },
-  { tiempo: "9:15", segundo: 555, titulo: "¿Qué quedó después?", texto: "Consecuencias y otras intervenciones." },
-  { tiempo: "11:00", segundo: 660, titulo: "Cierre", texto: "Respuesta a la pregunta central." }
-];
-
-// Esta función crea un botón por cada capítulo
-function crearCapitulos() {
-  let contenedor = document.getElementById("lista-capitulos");
-  for (let i = 0; i < capitulos.length; i++) {
-    let boton = document.createElement("button");
-    boton.className = "capitulo";
-    boton.innerHTML = "<span class='tiempo'>" + capitulos[i].tiempo + "</span>" +
-                      "<b>" + capitulos[i].titulo + "</b>" +
-                      "<small>" + capitulos[i].texto + "</small>";
-    // Al hacer clic se llama a irAlCapitulo con el segundo donde empieza
-    boton.setAttribute("onclick", "irAlCapitulo(" + capitulos[i].segundo + ")");
-    contenedor.appendChild(boton);
-  }
-}
-
-// Esta función mueve el video al segundo indicado y lo reproduce
-function irAlCapitulo(segundo) {
-  let video = document.getElementById("video-documental");
-  video.currentTime = segundo;   // currentTime es el minuto actual del video (en segundos)
-  video.play();                  // empieza a reproducir
-
-  // Sube o baja la página hasta que el video se vea
-  document.getElementById("caja-video").scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-
-// =====================================================
-// PARTE 5: DATOS DE LA LÍNEA DE TIEMPO
+// PARTE 4: DATOS DE LA LÍNEA DE TIEMPO
 // =====================================================
 // "eventos" es otra lista de objetos. Cada uno tiene:
 //   anio: año del hecho
@@ -442,7 +398,7 @@ let eventos = [
 
 
 // =====================================================
-// PARTE 6: FUNCIÓN DE LA LÍNEA DE TIEMPO
+// PARTE 5: FUNCIÓN DE LA LÍNEA DE TIEMPO
 // =====================================================
 
 // Esta función se ejecuta al hacer clic en un botón de filtro.
@@ -481,11 +437,10 @@ function mostrarLinea(categoria) {
 
 
 // =====================================================
-// PARTE 7: INICIO
+// PARTE 6: INICIO
 // =====================================================
 // Estas líneas se ejecutan apenas se abre la página
 crearRed();                // crea los botones de la red
 crearComparador();         // crea los botones del comparador
 mostrarComparacion(0);     // muestra el primer tema del comparador
-crearCapitulos();          // crea los botones de los capítulos
 mostrarLinea("todos");     // muestra todos los hechos de la línea de tiempo
