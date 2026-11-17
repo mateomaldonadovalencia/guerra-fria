@@ -164,31 +164,18 @@
       <h2>Producción audiovisual</h2>
       <p><b>Modalidad:</b> Documental histórico</p>
 
-      <div id="caja-video">
-        <video id="video-documental" controls>
-          <!-- video pone el reproductor. "controls" muestra los botones de play, pausa y volumen -->
-          <source src="video.mp4" type="video/mp4">
-          <!-- source dice cuál es el archivo. Debe llamarse video.mp4 y estar en la misma carpeta que este archivo -->
-          Tu navegador no puede mostrar el video.
-          <!-- Este texto solo sale si el navegador no soporta video -->
-        </video>
+    <div id="caja-video">
+        <!-- iframe mete un video de YouTube dentro de nuestra página -->
+        <!-- CAMBIAR: donde dice ID_DEL_VIDEO poner el código del video. Está al final del enlace:
+             en https://www.youtube.com/watch?v=AbC123xyz el código es AbC123xyz -->
+        <iframe src="https://www.youtube.com/watch?v=aweWIk2tXoM" title="Documental Guerra Fría: Corea y Vietnam" allow="fullscreen" allowfullscreen></iframe>
       </div>
-
-      <!-- Si prefieren subir el video a YouTube, borren la etiqueta video de arriba y usen esta línea.
-           OJO: con YouTube los botones de capítulos de abajo NO funcionan, solo funcionan con video.mp4
-      <iframe width="100%" height="450" src="https://www.youtube.com/embed/ID_DEL_VIDEO" allowfullscreen></iframe>
-      -->
-
-      <h3>Capítulos del documental</h3>
-      <p>Haz clic en un capítulo para ir directo a ese minuto del video.</p>
-      <div id="lista-capitulos"></div>
-      <!-- Vacío: el JavaScript crea aquí un botón por cada capítulo -->
 
       <p>
         <b>¿Cómo ayuda este documental a responder la pregunta central?</b>
-        Escribir aquí 2 o 3 líneas explicando qué muestra el documental y qué evidencia aporta.
+        Nuestro documental responde en dos pasos: primero explica por qué Estados Unidos intervino (la contención y la teoría del dominó) y después muestra qué pasó en Corea y en Vietnam. Como evidencia usa material de archivo, mapas y fechas clave, y cierra con las intervenciones posteriores y la caída del Muro de Berlín para mostrar cómo terminó la Guerra Fría.
       </p>
-      <!-- CAMBIAR: este párrafo lo tienen que escribir ustedes según su documental -->
+      <!-- Este párrafo es un borrador: cámbienlo si el documental final muestra otra cosa -->
     </section>
 
     <!-- ========== 5. RECURSO INTERACTIVO: LÍNEA DE TIEMPO ========== -->
